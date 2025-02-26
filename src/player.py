@@ -10,6 +10,7 @@ class Player(CircleShape):
         self.rotation = 0
         self.color = "white"
         self.width = 2
+        self.shoot_timer = 0
 
     def triangle(self):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
@@ -51,4 +52,9 @@ class Player(CircleShape):
             self.move(-dt)
         if keys[pygame.K_SPACE]:
             # shoot a shot
-            self.shoot()
+            if self.shoot_timer == 0:
+                self.shoot()
+                self.shoot_timer = PLAYER_SHOOT_COOLDOWN
+                
+        
+        self.shoot_timer = max(0, self.shoot_timer - dt)
