@@ -3,7 +3,7 @@ from typing import Optional
 
 class CircleShape(pygame.sprite.Sprite):
     def __init__(
-        self, x: float, y: float, radius: float, velocity: Optional[pygame.Vector2] = Noned
+        self, x: float, y: float, radius: float, velocity: Optional[pygame.Vector2] = None
     ):
         # we will be using this later
         if hasattr(self, "containers"):
